@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Useful information for web developers and designers">
+    <meta name="keywords" content="Six Revisions, Blog, Web developers, designers, posts, Css">
+    <meta name="author" content="Ivan Trajkovic">
+    <title>Six Revisions</title>
+    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="headline text-white">
+                    <h1><span>Six</span>Revisions</h1>
+                    <h5>Usefull Information for Web Developers & Designers</h5>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- NAVIGATION AND SEARCH -->
+        <div class="container">
+            <section class="sub-menu first">
+                <div class="main-menu">
+                    <h2 hidden="">a</h2>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a id="nav-to-form" class="nav-link uppercase" href="#">add new post</a>
+                        </li>
+                    </ul>
+                </div>
+                <input type="text" id="search-input" onkeyup="searchPosts()" placeholder="Search post"><i class="fas fa-search"></i>
+            </section>
+            <!-- SORTING -->
+            <section class="sorting">
+                <div class="container sort-by">
+                    <h4>Sort</h4>
+                    <p id="by-headline">By Headline<i class="fas fa-chevron-down"></i></p>
+                    <p id="by-author">By Author<i class="fas fa-chevron-down"></i></p>
+                    <p id="by-date">By Date<i class="fas fa-chevron-down"></i></p>
+                    <hr>
+                </div>
+            </section>
+            <!-- POSTS -->
+            <section class="posts">
+                <h2 hidden>a</h2>
+                <div class="row" id="append-posts">
+
+                </div>
+            </section>
+
+            <!-- SUB MENU SECOND ADD POST-->
+            <section class="sub-menu second">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h4 class="uppercase">add new post</h4>
+                        <a href="./index.html"><i class="far fa-caret-square-left"></i>Back To Posts</a>
+                    </div>
+                </div>
+            </section>
+            <!-- POST FORM /FOR ADD AND EDIT POST -->
+            <section class="post-form">
+                <h2 hidden>a</h2>
+                <div class="post-form-mask"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <form id="my-form">
+                            <input type="text" id="post-id" style="display: none;">
+                            <input type="text" id="headline" placeholder="Enter Headline (max 35 characters)" maxlength="35">
+                            <input type="text" id="description" placeholder="Enter description (max 50 characters)"
+                                maxlength="50">
+                            <textarea name="text" id="text" rows="10" placeholder="Enter your post text"></textarea>
+                            <div class="input-file">
+                                <input class="file-chooser" type="file" id="image" name="image" onchange="previewFile()"
+                                    accept="image/*">
+                            </div>
+                            <img src="" height="200" width="327" alt="Image preview..." id="preview">
+                            <input type="text" id="author" placeholder="Your Name (max 20 characters)" maxlength="20">
+
+                            <a href="./index.html"><input type="submit" id="submit" class="uppercase"></a>
+                            <a href="./index.html"><input type="button" id="save" class="uppercase" value="SAVE"></a>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- TOAST MESSAGE IF FIELDS ARE EMPTY-->
+            <div id="toast-error-1">All fields are required</div>
+            <!-- PREVIEW POST ON CLICK-->
+            <section class="sub-menu third">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h4 class="uppercase">preview post</h4>
+                        <a href="./index.html"><i class="far fa-caret-square-left"></i>Back To Posts</a>
+                    </div>
+                </div>
+            </section>
+            <section class="preview">
+                <div class="row justify-content-center" id="preview-append">
+                    <div class="col-11 col-sm-10 col-md-8 post-image text-center">
+                        <img id="post-image1" src="" alt="css" height="300" width="440">
+                    </div>
+                    <div class="col-11 col-sm-10 col-md-8 post-text text-center">
+                        <h3 id="post-headline1"></h3>
+                        <p>By : <i id="author1"></i></p>
+                        <hr>
+                        <p id="post-text-paragraph1"></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row footer1">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+            <p>Copyright &copy; 2018 Ivan Trajkovic</p>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
